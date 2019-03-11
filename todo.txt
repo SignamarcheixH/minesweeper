@@ -1,0 +1,10 @@
+TODOOOOOO
+
+fixer le probleme du spreading                                                                     (10/02/19)     DONE (12/02/19)
+possibilité de changer le style des tuiles                                                     (10/02/19)
+réglage de la taille de la grille ( ou de la difficulté en général)                (10/02/19)
+split le code en différents fichier js                                                               (10/02/19)     DONE  (12/02/19)
+bouton pour passer en mode flag                                                                (12/02/19)     DONE  (12/02/19)
+    +raccourci clavier                                                                                         (12/02/19)     DONE  (13/02/19)
+Installer le module Timer                                                                               (12/02/19)
+Installer le module BombLeft                                                                        (12/02/19)
