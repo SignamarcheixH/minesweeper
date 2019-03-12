@@ -8,20 +8,20 @@
 
 function drawGrid() {
   for(let i=0; i<grid.length; i++) {
-    let color = 100;
+    fill(100);
     let elem = grid[i].coords;
     if(grid[i].state == 1) {
-        color = 150;
+        fill(150);
     }
     if(grid[i].state == 2 ) {
-      color = 255;
+      fill(249, 255, 250);
     }
-    if(grid[i].flagged == 1) {
-      color = (255,0,0);
-    }
-    fill(color);
     //console.log(color);
+    //fill(color);
     rect(elem[0][0], elem[1][0], caseWidth, caseHeight);
+    if(grid[i].flagged == 1) {
+      drawFlag(grid[i]);
+    }
     if(grid[i].state == 2 ) {
       drawNumber(grid[i]);
     }
@@ -73,9 +73,25 @@ function drawSix(posXS, posYS) {
 |  Drawing utils  |
 ------------------------*/
 
+function drawFlag(c) {
+  posXS = c.coords[0][0];
+  posYS = c.coords[1][0];
+  fill(0);
+  noStroke();
+  //the flag's pole
+  rect(posXS+(caseWidth / 2)-2, posYS+(caseHeight / 5), 3, (2*caseHeight/3));
+  //the flag's base
+  rect(posXS+(caseWidth/6), posYS+(4*caseHeight/5),(4*caseWidth/6), 3);
+  fill(255,0,0);
+  //the triangle's points are ordered as : top, right, bottom
+  triangle(posXS+(caseWidth / 2)+1,posYS+(caseHeight / 5),   posXS+(5*caseWidth / 6),posYS+(caseHeight / 2)-2,    posXS+(caseWidth / 2)+1, posYS+(4* caseHeight / 6), )
+  stroke(255);
+}
+
 function drawNumber(c) {
   posXS = c.coords[0][0];
   posYS = c.coords[1][0];
+
   switch(c.mines) {
     case 1 :
       drawOne(posXS, posYS);

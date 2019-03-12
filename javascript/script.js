@@ -8,7 +8,6 @@ let firstClick;
 let mode = 'click';
 let nbBombsLeft;
 
-
 function setup ()  {
    let canvas = createCanvas(300,300);
    let test = document.getElementsByClassName("data-bombs-left")[0];
