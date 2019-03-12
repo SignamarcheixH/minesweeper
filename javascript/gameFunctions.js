@@ -14,6 +14,7 @@ function init() {
   firstClick = true;
   oldCase = null;
   setCases();
+  setModules();
 }
 
 function setCases() {
@@ -49,6 +50,22 @@ function setMines() {
        s--;
      }
   }
+}
+
+function setModules() {
+  let bombModule = document.getElementsByClassName("data-bombs-left")[0];
+  let timerModule = document.getElementsByClassName("data-timer")[0];
+  nbBombsLeft = nbMines ;
+  bombModule.innerText = nbBombsLeft;
+  timerModule.innerText = "00:00";
+  setInterval(updateTimer, 1000);
+}
+
+function updateBombsLeft(value) {
+  let bombModule = document.getElementsByClassName("data-bombs-left")[0];
+  nbBombsLeft+=value;
+  bombModule.innerText = nbBombsLeft;
+  (nbBombsLeft < 0) ? bombModule.classList.add("is-negative") : bombModule.classList.remove("is-negative") 
 }
 
 
@@ -99,10 +116,11 @@ function flagCase(idx) {
   let cell = grid[idx];
   if((cell.state != 2) && (cell.flagged == 0)) {
     cell.flagged = 1;
+    updateBombsLeft(-1);
   } else if ((cell.state != 2 )&&(cell.flagged ==1)) {
     cell.flagged = 0;
+    updateBombsLeft(1);
   }
-  console.log(cell.flagged);
 }
 
 function revealMines(idx) {
