@@ -1,47 +1,85 @@
-.minesweeper-hud {
+.game-window {
   background-color: gray;
-  height: 150px;
-  width: 300px; }
-  .minesweeper-hud .button-mode {
-    padding: 10px;
-    display: flex; }
-    .minesweeper-hud .button-mode > * {
-      padding: 10px;
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(0, 0, 0, 0.8) inset;
-      background-color: aliceblue;
-      cursor: pointer; }
-      .minesweeper-hud .button-mode > * > img {
-        width: 70px;
-        height: 70px; }
-      .minesweeper-hud .button-mode > *.is-active {
-        background-color: lightcoral; }
-    .minesweeper-hud .button-mode .click-mode {
-      margin-right: 10px; }
-  .minesweeper-hud .game-data {
+  padding: 0 10px 10px 10px;
+  width: -moz-fit-content;
+  border-radius: 10px; }
+  .game-window .top-bar-hud {
     display: flex;
-    padding-left: 10px;
-    padding-right: 10px; }
-    .minesweeper-hud .game-data > * {
-      background-color: teal;
-      height: 30px;
-      width: 50%;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(0, 0, 0, 0.8) inset;
-      -webkit-user-select: none;
-      /* Safari */
-      -moz-user-select: none;
-      /* Firefox */
-      -ms-user-select: none;
-      /* Internet Explorer/Edge */
-      user-select: none; }
-    .minesweeper-hud .game-data .data-bombs-left {
-      margin-right: 10px; }
-      .minesweeper-hud .game-data .data-bombs-left.is-negative {
-        color: red; }
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-bottom: 5px; }
+    .game-window .top-bar-hud.is-hidden {
+      display: none; }
+    .game-window .top-bar-hud .icon-close {
+      height: 22px;
+      width: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s; }
+      .game-window .top-bar-hud .icon-close:hover {
+        transform-origin: center;
+        transform: rotate(90deg); }
+      .game-window .top-bar-hud .icon-close > * {
+        width: 138%;
+        height: 1px;
+        background-color: black; }
+      .game-window .top-bar-hud .icon-close .line-left {
+        transform-origin: top left;
+        transform: rotate(45deg); }
+      .game-window .top-bar-hud .icon-close .line-right {
+        transform-origin: bottom left;
+        transform: rotate(-45deg); }
+  .game-window .main-menu .menu-buttons {
+    display: flex;
+    flex-direction: column; }
+  .game-window .minesweeper-hud {
+    background-color: gray;
+    height: 150px;
+    width: 300px; }
+    .game-window .minesweeper-hud .button-mode {
+      padding: 10px;
+      display: flex; }
+      .game-window .minesweeper-hud .button-mode > * {
+        padding: 10px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(0, 0, 0, 0.8) inset;
+        background-color: aliceblue;
+        cursor: pointer; }
+        .game-window .minesweeper-hud .button-mode > * > img {
+          width: 70px;
+          height: 70px; }
+        .game-window .minesweeper-hud .button-mode > *.is-active {
+          background-color: lightcoral; }
+      .game-window .minesweeper-hud .button-mode .click-mode {
+        margin-right: 10px; }
+    .game-window .minesweeper-hud .game-data {
+      display: flex;
+      padding-left: 10px;
+      padding-right: 10px; }
+      .game-window .minesweeper-hud .game-data > * {
+        background-color: teal;
+        height: 30px;
+        width: 50%;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(0, 0, 0, 0.8) inset;
+        -webkit-user-select: none;
+        /* Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none; }
+      .game-window .minesweeper-hud .game-data .data-bombs-left {
+        margin-right: 10px; }
+        .game-window .minesweeper-hud .game-data .data-bombs-left.is-negative {
+          color: red; }
+
+.is-hidden {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

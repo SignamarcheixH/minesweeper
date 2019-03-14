@@ -7,14 +7,25 @@
 |       Init          |
 --------------------*/
 
-function init() {
+function initGame() {
   /* leads the whole initialisation */
+  let canvas = createCanvas(300,300);
+   canvas.parent('minesweeper-field');
+   background(0);
+   stroke(255);
   caseWidth = round(width / columns);
   caseHeight = round(height / rows);
   firstClick = true;
   oldCase = null;
   setCases();
   setModules();
+}
+
+function displayMenu() {
+  let hud = document.getElementsByClassName("minesweeper-hud")[0];
+  hud.classList.add("is-hidden");
+  //resizeCanvas(300,500);
+  //background(0);
 }
 
 function setCases() {
@@ -65,7 +76,7 @@ function updateBombsLeft(value) {
   let bombModule = document.getElementsByClassName("data-bombs-left")[0];
   nbBombsLeft+=value;
   bombModule.innerText = nbBombsLeft;
-  (nbBombsLeft < 0) ? bombModule.classList.add("is-negative") : bombModule.classList.remove("is-negative") 
+  (nbBombsLeft < 0) ? bombModule.classList.add("is-negative") : bombModule.classList.remove("is-negative")
 }
 
 
