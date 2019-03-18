@@ -33,10 +33,18 @@
   .game-window .main-menu .menu-buttons {
     display: flex;
     flex-direction: column; }
+  .game-window .option-menu .size-line, .game-window .option-menu .difficulty-line {
+    display: flex;
+    margin-bottom: 20px; }
+    .game-window .option-menu .size-line > *, .game-window .option-menu .difficulty-line > * {
+      background-color: red;
+      margin-right: 10px; }
+      .game-window .option-menu .size-line > *.is-active, .game-window .option-menu .difficulty-line > *.is-active {
+        background-color: green; }
   .game-window .minesweeper-hud {
     background-color: gray;
     height: 150px;
-    width: 300px; }
+    width: 100%; }
     .game-window .minesweeper-hud .button-mode {
       padding: 10px;
       display: flex; }

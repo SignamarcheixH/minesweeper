@@ -7,9 +7,13 @@
 |       Init          |
 --------------------*/
 
-function initGame() {
+function initGame(gridWidth, gridHeight, colsNumber, rowsNumber, minesNumber) {
   /* leads the whole initialisation */
-  let canvas = createCanvas(300,300);
+  nbMines = minesNumber;
+  columns = colsNumber;
+  rows = rowsNumber;
+  grid = [];
+  let canvas = createCanvas(gridWidth,gridHeight);
    canvas.parent('minesweeper-field');
    background(0);
    stroke(255);
@@ -18,6 +22,7 @@ function initGame() {
   firstClick = true;
   oldCase = null;
   setCases();
+  console.log(grid);
   setModules();
 }
 
@@ -69,7 +74,7 @@ function setModules() {
   nbBombsLeft = nbMines ;
   bombModule.innerText = nbBombsLeft;
   timerModule.innerText = "00:00";
-  setInterval(updateTimer, 1000);
+  timerInterval = setInterval(updateTimer, 1000);
 }
 
 function updateBombsLeft(value) {
@@ -106,6 +111,7 @@ function returnCase(idx) {
       firstClick = false;
       if(cell.mines == 0 ) {                              //if the case is blank, we keep returning neighbours
         let neighbours = getNeighbours(idx);
+        console.log(neighbours);
         for(let i = 0; i<neighbours.length; i++) {
           returnCase(neighbours[i]);
         }

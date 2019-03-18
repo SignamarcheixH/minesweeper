@@ -45,10 +45,23 @@
       flex-direction: column;
     }
   }
+  .option-menu {
+    .size-line, .difficulty-line {
+      display:flex;
+      margin-bottom: 20px;
+      > * {
+        background-color: red;
+        margin-right: 10px;
+        &.is-active {
+          background-color: green;
+        }
+      }
+    }
+  }
   .minesweeper-hud {
     background-color: gray;
     height: 150px;
-    width: 300px;
+    width: 100%;
     .button-mode {
       padding: 10px;
       display: flex;
