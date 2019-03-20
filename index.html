@@ -17,29 +17,46 @@
 
               <div class="main-menu">
                     <h1 class="menu-title">Minesweeper</h1>
-                    <p class="menu-subtitle">The most classic minesweeper</p>
+                    <div class="menu-subtitle">The most classic minesweeper</div>
 
                     <div class="menu-buttons">
                           <button class="btn btn-play">Play</button>
                           <button class="btn btn-options">Options</button>
                           <button class="btn btn-leaderboard">Leaderboard</button>
                     </div>
+                    <div class="copyright">© Signamarcheix Hugues - mars 2019</div>
               </div>
 
               <div class="option-menu is-hidden">
                     <h1 class="menu-title">Options</h1>
                     <p class="menu-subtitle">choose your options</p>
+                    <div class="separator">Size</div>
                     <div class="size-line">
                               <div class="btn-option small is-active" data-width="300" data-height="300" data-cols="10" data-rows="10">Small</div>
                               <div class="btn-option medium" data-width="600" data-height="600" data-cols="20" data-rows="20">Medium</div>
                               <div class="btn-option large" data-width="750" data-height="750" data-cols="30" data-rows="30">Large</div>
                     </div>
-
+                    <div class="separator">Difficulty</div>
                     <div class="difficulty-line">
                             <div class="btn-option easy is-active" data-mines="20">Easy</div>
                             <div class="btn-option normal" data-mines="60">Normal</div>
-                            <div class="btn-option hard" data-mines="99">Hard</div>
+                            <div class="btn-option hard" data-mines="150">Hard</div>
                     </div>
+                    <div class="separator">Style</div>
+                    <div class="style-line">
+                            <div id="window-preview"></div>
+                            <div class="preview-buttons">
+                                  <select id="grid-style-tiles" onchange="changeTilesStyle">
+                                          <option value="default" selected="selected">Dots</option>
+                                          <option value="blueFlag">Kanji</option>
+                                  </select>
+                                  <select id="grid-style-flag" onchange="changeFlagStyle()">
+                                          <option value="default" selected="selected">Red Flag</option>
+                                          <option value="blueFlag">Blue Flag</option>
+                                  </select>
+                          </div>
+                    </div>
+
 
                     <div class="menu-buttons">
                           <button class="btn btn-back">Back</button>

@@ -5,6 +5,7 @@ let firstClick;
 let mode = 'click';
 let nbBombsLeft;
 let timerInterval;
+let flagStyle = 'default';
 
 function setup ()  {
     displayMainMenu();

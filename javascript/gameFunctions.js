@@ -22,18 +22,10 @@ function initGame(gridWidth, gridHeight, colsNumber, rowsNumber, minesNumber) {
   firstClick = true;
   oldCase = null;
   setCases();
-  console.log(grid);
   setModules();
 }
 
-function displayMenu() {
-  let hud = document.getElementsByClassName("minesweeper-hud")[0];
-  hud.classList.add("is-hidden");
-  //resizeCanvas(300,500);
-  //background(0);
-}
-
-function setCases() {
+function setCases() {  
   /* sets the whole grid*/
   let posXS;
   let posXE;
@@ -111,7 +103,6 @@ function returnCase(idx) {
       firstClick = false;
       if(cell.mines == 0 ) {                              //if the case is blank, we keep returning neighbours
         let neighbours = getNeighbours(idx);
-        console.log(neighbours);
         for(let i = 0; i<neighbours.length; i++) {
           returnCase(neighbours[i]);
         }

@@ -1,6 +1,8 @@
 .game-window {
   background-color: gray;
   padding: 0 10px 10px 10px;
+  margin-left: 50%;
+  transform: translateX(-50%);
   width: -moz-fit-content;
   border-radius: 10px; }
   .game-window .top-bar-hud {
@@ -30,17 +32,66 @@
       .game-window .top-bar-hud .icon-close .line-right {
         transform-origin: bottom left;
         transform: rotate(-45deg); }
+  .game-window .main-menu .menu-title {
+    text-align: center;
+    padding-top: 10px; }
   .game-window .main-menu .menu-buttons {
     display: flex;
     flex-direction: column; }
+    .game-window .main-menu .menu-buttons > * {
+      margin-bottom: 20px; }
+      .game-window .main-menu .menu-buttons > *:last-child {
+        margin-bottom: 0; }
+  .game-window .main-menu .copyright {
+    font-style: italic;
+    font-size: 10px; }
+  .game-window .option-menu .separator {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 15px;
+    font-style: italic; }
+    .game-window .option-menu .separator::before, .game-window .option-menu .separator::after {
+      content: '';
+      background-color: black;
+      height: 1px;
+      width: 100%; }
+    .game-window .option-menu .separator::before {
+      margin-right: 10px; }
+    .game-window .option-menu .separator::after {
+      margin-left: 10px; }
   .game-window .option-menu .size-line, .game-window .option-menu .difficulty-line {
     display: flex;
     margin-bottom: 20px; }
     .game-window .option-menu .size-line > *, .game-window .option-menu .difficulty-line > * {
-      background-color: red;
-      margin-right: 10px; }
+      background-color: #c03b3b;
+      margin-right: 10px;
+      width: 75px;
+      height: 25px;
+      text-align: center;
+      user-select: none;
+      -moz-user-select: none;
+      border: 1px solid black; }
       .game-window .option-menu .size-line > *.is-active, .game-window .option-menu .difficulty-line > *.is-active {
-        background-color: green; }
+        background-color: green;
+        font-weight: bold; }
+  .game-window .option-menu .style-line {
+    display: flex;
+    margin-bottom: 20px; }
+    .game-window .option-menu .style-line #window-preview {
+      pointer-events: none;
+      margin-left: 5px; }
+    .game-window .option-menu .style-line .preview-buttons {
+      margin-right: -70px; }
+      .game-window .option-menu .style-line .preview-buttons #grid-style-flag, .game-window .option-menu .style-line .preview-buttons #grid-style-tiles {
+        height: 35px;
+        margin-left: 10%;
+        width: 112px;
+        font-weight: bold;
+        font-size: 14px; }
+      .game-window .option-menu .style-line .preview-buttons #grid-style-tiles {
+        margin-bottom: 25px; }
   .game-window .minesweeper-hud {
     background-color: gray;
     height: 150px;
@@ -86,6 +137,12 @@
         margin-right: 10px; }
         .game-window .minesweeper-hud .game-data .data-bombs-left.is-negative {
           color: red; }
+
+.btn {
+  font-size: 20px;
+  font-weight: bold;
+  height: 60px;
+  width: 100%; }
 
 .is-hidden {
   display: none; }

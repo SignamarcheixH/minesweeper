@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   closeButton.addEventListener("click", () => {
     clearInterval(timerInterval);
     canvas = resizeCanvas(0,0);
+    grid = [];
     displayMainMenu();
     });
 
@@ -87,6 +88,8 @@ optionsSizeButtons.forEach((el)=> {
       oldActive.classList.remove("is-active");
       el.classList.add("is-active");
   });
+
+  initPreview();
 });
 
 optionsDifficultyButtons.forEach((el)=> {
@@ -100,4 +103,72 @@ optionsDifficultyButtons.forEach((el)=> {
   backButton.addEventListener("click", () => {
       displayMainMenu();
   });
+}
+
+
+
+function initPreview() {
+  /* leads the whole initialisation */
+  nbMines = 5;
+  columns = 5;
+  rows = 5;
+  grid = [];
+  let previewCanvas = createCanvas(100,100);
+   previewCanvas.parent('window-preview');
+   background(0);
+   stroke(255);
+  caseWidth = round(width / columns);
+  caseHeight = round(height / rows);
+  setCasesPreview();
+  returnCase(20);
+}
+
+function setCasesPreview() {
+  /* sets the whole grid*/
+  let posXS;
+  let posXE;
+  let posYE;
+  let posYS;
+  for(let i=0;i<rows;i++) {
+    posYS = i * caseHeight;
+    posYE = posYS + caseHeight;
+    for(let j = 0; j<columns; j++) {
+      posXS = j * caseWidth;
+      posXE = posXS + caseWidth;
+      let tuple = ""+i+","+j+"";
+      let cell = new Object();
+      switch(tuple) {
+         case "0,1":
+         case "0,2":
+         case "2,2":
+         case "2,3":
+         case "3,4":
+          cell.state = 1;
+          cell.flagged = 1;
+          cell.mines = -1;
+          cell.coords  = [[posXS, posXE], [posYS, posYE]];
+          grid.push(cell);
+          break;
+          default:
+              cell.state = 0;                                                                  // 0 : undiscovered,    1: mined    2 : returned
+              cell.flagged = 0;
+              cell.mines = -1;
+              cell.coords  = [[posXS, posXE], [posYS, posYE]];
+              grid.push(cell);
+              break;
+      }
+    }
+  }
+}
+
+function setMines() {
+  /* places as much mines as requested in the game's parameters*/
+  let s = nbMines;
+  while( s != 0 ) {
+     let idx = getRandomInt(grid.length-1);
+     if (grid[idx].state != 1) {
+       grid[idx].state = 1;
+       s--;
+     }
+  }
 }

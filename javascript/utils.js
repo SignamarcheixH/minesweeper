@@ -1,3 +1,10 @@
+function changeFlagStyle() {
+  flagStyle = document.getElementById('grid-style-flag').value;
+}
+
+function changeTilesStyle() {
+  tilesStyle = document.getElementById('grid-style-tiles').value;
+}
 
 function updateTimer() {
   let timer = document.getElementsByClassName("data-timer")[0];
