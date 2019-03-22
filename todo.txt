@@ -24,3 +24,4 @@ Make the hud fit the field on all sizes                                         
 Make the game full screen and adapt with size                                        (18/03/19)
             + main menu to the left                                                                     (18/03/19)
 Make the player returns to mainMenu when he lose                              (19/03/19)
+Fix firstClick on mines at the beginning of a game                                  (22/03/19)

@@ -27,6 +27,9 @@ function drawGrid() {
   }
 }
 
+/*-------------------
+|       Flag         |
+--------------------*/
 
 function drawBlueFlag(c) {
   posXS = c.coords[0][0];
@@ -58,39 +61,43 @@ function drawRedFlag(c) {
   stroke(255);
 }
 
+/////////////////////////////////////////////////////////
+/////////////  NUMBER DRAWING //////////////////
+////////////////////////////////////////////////////////
+
 /*-------------------
 |       Dots         |
 --------------------*/
 
-function drawOne(posXS, posYS) {
-    fill(0);
+function drawOneDots(posXS, posYS, colored) {
+    //fill(0);
     ellipse(posXS+(caseWidth/2), posYS+(caseHeight/2), 5, 5);
 }
 
-function drawTwo(posXS, posYS) {
-  fill(0);
+function drawTwoDots(posXS, posYS, colored) {
+  //fill(0);
   ellipse(posXS+(caseWidth/3), posYS+(caseHeight/3), 5, 5);
   ellipse(posXS+(caseWidth*(2/3)), posYS+(caseHeight*(2/3)), 5, 5);
 }
 
-function drawThree(posXS, posYS) {
-  drawTwo(posXS, posYS);
-  drawOne(posXS, posYS);
+function drawThreeDots(posXS, posYS, colored) {
+  drawTwoDots(posXS, posYS, colored);
+  drawOneDots(posXS, posYS, colored);
 }
 
-function drawFour(posXS, posYS) {
-    drawTwo(posXS, posYS);
+function drawFourDots(posXS, posYS, colored) {
+    drawTwoDots(posXS, posYS, colored);
     ellipse(posXS+(caseWidth*(2/3)), posYS+(caseHeight/3), 5, 5);
     ellipse(posXS+(caseWidth/3), posYS+(caseHeight*(2/3)), 5, 5);
 }
 
-function drawFive(posXS,posYS) {
-    drawFour(posXS, posYS);
-    drawOne(posXS, posYS);
+function drawFiveDots(posXS,posYS, colored) {
+    drawFourDots(posXS, posYS, colored);
+    drawOneDots(posXS, posYS, colored);
 }
 
-function drawSix(posXS, posYS) {
-  drawFour(posXS, posYS);
+function drawSixDots(posXS, posYS, colored) {
+  drawFourDots(posXS, posYS, colored);
   ellipse(posXS+(caseWidth/3), posYS+(caseHeight/2), 5, 5);
   ellipse(posXS+(caseWidth*(2/3)), posYS+(caseHeight/2), 5, 5);
 }
@@ -113,28 +120,71 @@ function drawFlag(c) {
       }
 }
 
+
 function drawNumber(c) {
+      switch(tilesStyle) {
+          case 'default':
+            drawNumberDots(c, false);
+            break;
+          case 'coloredDots':
+            drawNumberDots(c, true);
+            break;
+      }
+}
+
+function drawNumberDots(c,colored) {
   posXS = c.coords[0][0];
   posYS = c.coords[1][0];
-
   switch(c.mines) {
     case 1 :
-      drawOne(posXS, posYS);
+      (colored) ? fill(0,0,255) : fill(0);
+      drawOneDots(posXS, posYS, colored);
       break;
     case 2 :
-      drawTwo(posXS, posYS);
+      (colored) ? fill(0,128,0) : fill(0);
+      drawTwoDots(posXS, posYS, colored);
       break;
    case 3 :
-      drawThree(posXS, posYS);
+      (colored) ? fill(255,0,0) : fill(0);
+      drawThreeDots(posXS, posYS, colored);
       break;
    case 4 :
-      drawFour(posXS, posYS);
+      (colored) ? fill(139,0,139) : fill(0);
+      drawFourDots(posXS, posYS, colored);
       break;
   case 5 :
-      drawFive(posXS, posYS);
+      (colored) ? fill(128,0,0) : fill(0);
+      drawFiveDots(posXS, posYS, colored);
       break;
   case 6 :
-      drawSix(posXS, posYS);
+      (colored) ? fill(64,224,208) : fill(0);
+      drawSixDots(posXS, posYS, colored);
+      break;
+  }
+}
+
+
+function drawNumberKanji(c) {
+  posXS = c.coords[0][0];
+  posYS = c.coords[1][0];
+  switch(c.mines) {
+    case 1 :
+      drawOneKanji(posXS, posYS);
+      break;
+    case 2 :
+      drawTwoKanji(posXS, posYS);
+      break;
+   case 3 :
+      drawThreeKanji(posXS, posYS);
+      break;
+   case 4 :
+      drawFourKanji(posXS, posYS);
+      break;
+  case 5 :
+      drawFiveKanji(posXS, posYS);
+      break;
+  case 6 :
+      drawSixKanji(posXS, posYS);
       break;
   }
 }

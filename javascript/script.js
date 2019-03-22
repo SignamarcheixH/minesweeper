@@ -6,6 +6,7 @@ let mode = 'click';
 let nbBombsLeft;
 let timerInterval;
 let flagStyle = 'default';
+let tilesStyle = 'default';
 
 function setup ()  {
     displayMainMenu();
