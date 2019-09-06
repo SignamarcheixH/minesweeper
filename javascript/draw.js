@@ -70,12 +70,10 @@ function drawRedFlag(c) {
 --------------------*/
 
 function drawOneDots(posXS, posYS, colored) {
-    //fill(0);
     ellipse(posXS+(caseWidth/2), posYS+(caseHeight/2), 5, 5);
 }
 
 function drawTwoDots(posXS, posYS, colored) {
-  //fill(0);
   ellipse(posXS+(caseWidth/3), posYS+(caseHeight/3), 5, 5);
   ellipse(posXS+(caseWidth*(2/3)), posYS+(caseHeight*(2/3)), 5, 5);
 }
@@ -100,6 +98,17 @@ function drawSixDots(posXS, posYS, colored) {
   drawFourDots(posXS, posYS, colored);
   ellipse(posXS+(caseWidth/3), posYS+(caseHeight/2), 5, 5);
   ellipse(posXS+(caseWidth*(2/3)), posYS+(caseHeight/2), 5, 5);
+}
+
+function drawSevenDots(posXS, posYS, colored) {
+  drawSixDots(posXS, posYS, colored);
+  drawOneDots(posXS, posYS, colored);
+}
+
+function drawEightDots(posXS, posYS, colored) {
+  drawSixDots(posXS, posYS, colored);
+  ellipse(posXS+(caseWidth/2), posYS+(caseHeight/3), 5, 5);
+  ellipse(posXS+(caseWidth/2), posYS+(caseHeight*(2/3)), 5, 5);
 }
 
 
@@ -160,31 +169,13 @@ function drawNumberDots(c,colored) {
       (colored) ? fill(64,224,208) : fill(0);
       drawSixDots(posXS, posYS, colored);
       break;
-  }
-}
-
-
-function drawNumberKanji(c) {
-  posXS = c.coords[0][0];
-  posYS = c.coords[1][0];
-  switch(c.mines) {
-    case 1 :
-      drawOneKanji(posXS, posYS);
+  case 7 :
+      (colored) ? fill(0,0,0) : fill(0);
+      drawSevenDots(posXS, posYS, colored);
       break;
-    case 2 :
-      drawTwoKanji(posXS, posYS);
-      break;
-   case 3 :
-      drawThreeKanji(posXS, posYS);
-      break;
-   case 4 :
-      drawFourKanji(posXS, posYS);
-      break;
-  case 5 :
-      drawFiveKanji(posXS, posYS);
-      break;
-  case 6 :
-      drawSixKanji(posXS, posYS);
+  case 8 :
+      (colored) ? fill(122,122,122) : fill(0);
+      drawEightDots(posXS, posYS, colored);
       break;
   }
 }

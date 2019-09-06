@@ -21,11 +21,12 @@ function initGame(gridWidth, gridHeight, colsNumber, rowsNumber, minesNumber) {
   caseHeight = round(height / rows);
   firstClick = true;
   oldCase = null;
+  clearInterval(timerInterval);
   setCases();
   setModules();
 }
 
-function setCases() {  
+function setCases() {
   /* sets the whole grid*/
   let posXS;
   let posXE;
@@ -66,7 +67,7 @@ function setModules() {
   nbBombsLeft = nbMines ;
   bombModule.innerText = nbBombsLeft;
   timerModule.innerText = "00:00";
-  timerInterval = setInterval(updateTimer, 1000);
+  //timerInterval = setInterval(updateTimer, 1000);
 }
 
 function updateBombsLeft(value) {
@@ -98,6 +99,9 @@ function returnCase(idx) {
   let cell = grid[idx];
   if(cell.flagged != 1 ) {
     if(cell.state == 0) {                                    // if the case has not been returned yet
+      if(firstClick) {
+        timerInterval = setInterval(updateTimer, 1000);
+      }
       cell.state = 2;                                                         //state == 2 -> case returned
       cell.mines = revealMines(idx);
       firstClick = false;
@@ -109,9 +113,24 @@ function returnCase(idx) {
       }
     } else if (cell.state == 1) {                       //if the case is a mine
       if (firstClick) {
-        location.reload();
+        let optionMenu = document.getElementsByClassName("option-menu")[0];
+
+        let sizeLine = optionMenu.getElementsByClassName("size-line")[0];
+        let difficultyLine = optionMenu.getElementsByClassName("difficulty-line")[0];
+        let sizeActive = sizeLine.getElementsByClassName("is-active")[0];
+        let difficultyActive = difficultyLine.getElementsByClassName("is-active")[0];
+
+        let gameWidth = parseInt(sizeActive.dataset.width);
+        let gameHeight = parseInt(sizeActive.dataset.height);
+        let gameCols = parseInt(sizeActive.dataset.cols);
+        let gameRows = parseInt(sizeActive.dataset.rows);
+        let gameMines = parseInt(difficultyActive.dataset.mines);
+
+        initGame(gameWidth, gameHeight, gameCols, gameRows, gameMines);
       } else {
         alert("perdu");
+        clearInterval(timerInterval);
+        displayMainMenu();
       }
     } else {
 
