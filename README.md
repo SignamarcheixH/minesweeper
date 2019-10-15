@@ -29,6 +29,3 @@ Open `index.html` to view it in the browser.
 
 
 ![alt text](./ressources/readme_options_picture.png)
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
