@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let minesweeperHud = document.getElementsByClassName("minesweeper-hud")[0];
   let minesweeperField = document.getElementById("minesweeper-field");
   let topBar  = document.getElementsByClassName("top-bar-hud")[0];
+  let gameWindow = document.getElementsByClassName('game-window')[0];
 
   let closeButton = topBar.getElementsByClassName("icon-close")[0];
   let backButton = document.getElementsByClassName("btn-back")[0];
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas = resizeCanvas(0,0);
     grid = [];
     displayMainMenu();
+    gameWindow.style.width = '300px';
     });
 
 
@@ -36,8 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let gameCols = parseInt(sizeActive.dataset.cols);
     let gameRows = parseInt(sizeActive.dataset.rows);
     let gameMines = parseInt(difficultyActive.dataset.mines);
+    gameWindow.style.width = gameWidth + 'px';
 
     initGame(gameWidth, gameHeight, gameCols, gameRows, gameMines);
+
   });
 
   optionsButton.addEventListener("click", () => {

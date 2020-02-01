@@ -1,6 +1,7 @@
 ## Project overview
 
 This is a browser reproduction of the famous game Minesweeper. It comes with an options page
+This project was made with the use of the P5js library.
 
 ![alt text](./ressources/readme_home_picture.png)
 
@@ -8,6 +9,7 @@ This is a browser reproduction of the famous game Minesweeper. It comes with an 
 ## How to make it work
 
 Open `index.html` to view it in the browser.
+You can also launch it with `php -S 127.0.0.1:8080` and then navigate to localhost:8080 in the browser.
 
 
 ## Features

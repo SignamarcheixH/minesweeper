@@ -76,6 +76,7 @@
     }
     .size-line, .difficulty-line {
       display:flex;
+      justify-content: space-around;
       margin-bottom: $l;
       > * {
         background-color: #c03b3b;
@@ -94,6 +95,7 @@
     }
     .style-line {
       display: flex;
+      justify-content: space-around;
       margin-bottom: $l;
       #window-preview {
         pointer-events: none;
