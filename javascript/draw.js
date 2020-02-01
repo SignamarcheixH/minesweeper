@@ -10,9 +10,9 @@ function drawGrid() {
   for(let i=0; i<grid.length; i++) {
     fill(100);
     let elem = grid[i].coords;
-    if(grid[i].state == 1) {
-        fill(150);
-    }
+    // if(grid[i].state == 1) {
+    //     fill(150);
+    // }
     if(grid[i].state == 2 ) {
       fill(249, 255, 250);
     }

@@ -9,6 +9,7 @@ This project was made with the use of the P5js library.
 ## How to make it work
 
 Open `index.html` to view it in the browser.
+
 You can also launch it with `php -S 127.0.0.1:8080` and then navigate to localhost:8080 in the browser.
 
 
@@ -31,3 +32,7 @@ You can also launch it with `php -S 127.0.0.1:8080` and then navigate to localho
 
 
 ![alt text](./ressources/readme_options_picture.png)
+
+### Leaderboard
+
+Incoming soon. It will be a page where all your highscores in each size and difficulty will be registered. 

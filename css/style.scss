@@ -161,6 +161,35 @@
       }
     }
   }
+  .lost-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    pointer-events: none;
+    box-shadow: 0 0 75px rgba(0,0,0,0.2);
+    &.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    p { 
+      border-bottom: 1px solid gray;
+      margin: 0;
+      padding: 10px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px 0;
+      -webkit-appearance: none;
+      border-radius: 0 0 10px 10px;
+      border: none;
+    }
+  }
 }
 
 

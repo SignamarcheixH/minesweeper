@@ -128,9 +128,14 @@ function returnCase(idx) {
 
         initGame(gameWidth, gameHeight, gameCols, gameRows, gameMines);
       } else {
-        alert("perdu");
-        clearInterval(timerInterval);
-        displayMainMenu();
+        let lostModal = document.getElementsByClassName('lost-modal')[0];
+        lostModal.classList.add('is-open')
+        let closeModalButton = document.getElementsByClassName('closeModal')[0];
+        closeModalButton.addEventListener("click", () => {
+          lostModal.classList.remove('is-open')
+          clearInterval(timerInterval);
+          displayMainMenu();
+        })
       }
     } else {
 
