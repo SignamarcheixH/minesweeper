@@ -256,11 +256,12 @@ function mousePressed() {
 }
 
 
- function keyReleased() {
-   if (keyCode == 32) {
-     switchMode();
-   }
- }
+document.addEventListener("keydown", event => {
+  event.preventDefault();
+  if (event.keyCode === 32) {
+    switchMode();
+  }
+});
 
 function switchMode() {
   let clickArea = document.getElementsByClassName("click-mode")[0];
